@@ -446,5 +446,293 @@ Data Quality Reporting: Auditors work with data management teams to develop data
 By collaborating on the implementation of these controls and mechanisms, data quality auditors and data management teams can effectively ensure and enforce data quality within an organization.
 
 
+DATA QUALITY FUNDAMENTALS BOOK
+As mentioned in Chapter 3, some common data quality checks include:
+
+Null values
+Are any values unknown (NULL)?
+Freshness
+How up-to-date is my data? Was it updated an hour ago or two months ago?
+Volume
+How much data is represented by this data set? Did two hundred rows turn into two thousand?
+Distribution
+Is my data within an accepted range? Are my units the same within a given column?
+Missing values
+Are any values missing from my data set?
+
+Increasingly, data teams are coming to rely on similar principles of observability and monitoring to track data quality in production pipelines (see Figure 5-1), with companies developing their own unique methodology for how to measure it, depending on the needs of the business.
 
 
+Figure 5-1. A data pipeline refers to “data in production” and is composed of a data warehouse / lake (or both), ETL, and an analytics layer
+Similarly, data observability (i.e., ensuring data quality in the pipeline) can be broken down into five major pillars, as shown in Figure 5-2.
+
+
+Figure 5-2. The five pillars of data observability
+The five pillars of data observability, like the three pillars of application observability, highlight the elements of data health that should be closely monitored as an indicator of high data quality:
+
+Freshness
+Is the data recent? When was the last time it was generated? What upstream data is included/omitted?
+Distribution
+Is the data within accepted ranges? Is it properly formatted? Is it complete?
+Volume
+Has all the data arrived?
+Schema
+What is the schema, and how has it changed? Who has made these changes and for what reasons?
+Lineage
+For a given data asset, what are the upstream sources and downstream assets that are impacted by it? Who are the people generating this data, and who is relying on it for decision making?
+The five pillars of data observability serve as key measurements for understanding the health of your data at each stage in its life cycle, and provide a fresh (no pun intended) lens with which to view the quality of your data.
+
+--------------------------------
+Data discovery can answer these questions not just for the data’s ideal state but for the current state of the data across each domain:
+
+What data set is most recent? Which data sets can be deprecated?
+
+When was the last time this table was updated?
+
+What is the meaning of a given field in my domain?
+
+Who has access to this data? When was the last time this data was used? By whom?
+
+What are the upstream and downstream dependencies of this data?
+
+Is this production-quality data?
+
+What data matters for my domain’s business requirements?
+
+What are my assumptions about this data, and are they being met?
+
+Data discovery makes it possible for data teams to trust that their assumptions about data match reality, empowering dynamic discovery and a high degree of reliability across your data infrastructure.
+--------------------------------
+
+Measuring the ROI on Data Quality
+Unreliable data can lead to wasted time, lost revenue, compliance risk, and erosion of customer trust.
+
+--------------------------------
+
+Similarly, SLAs can help data teams and their consumers define, measure, and track data reliability across its life cycle. Setting data reliability SLAs builds trust between your data, your data team, and downstream consumers. Without agreed-upon SLIs, consumers can make inaccurate assumptions or look to anecdotal evidence about the reliability of your data. With SLOs in place, your organization can become more “data-driven” about data.
+
+Step 1: Defining data reliability with SLAs
+
+Setting SLAs first requires agreeing upon and clearly defining what reliable data means to your business. We recommend starting this process by conducting an inventory of your data, how it’s being used, and by whom—assessing the historical performance of your data to get a baseline metric of reliability.
+
+Step 2: Measuring data reliability with SLIs
+
+SLIs will vary based on your specific use case, but here are a few examples of metrics often used to quantify data health:
+The number of data incidents for a particular data asset (N)
+This may be beyond your control for external data sources, but it is still a key driver of data downtime and typically worth measuring.
+The frequency with which a critical table is updated
+If an important table should be updated every 10 hours or less, you—and your data consumers—should know.
+The expected distribution for a given data set
+If your distribution falls outside the standard range, this could indicate an issue outside of your control (maybe sales were just really high that day?), but it’s likely worth looking into.
+
+Step 3: Tracking data reliability with SLOs
+
+Once SLIs are identified, you can set objectives, or ranges of acceptable downtime for your data. These SLOs should be based on your real-world circumstances—for example, if you decide to track TTD but don’t use automated monitoring tools, your SLO should be more generous than a mature organization with robust data observability tooling.
+
+Setting these ranges makes it possible to create a uniform framework that rates incidents by level of severity and makes it easy to respond swiftly when issues occur. With these objectives set and incorporated into your SLAs, you can build dashboards that track and report on progress—either custom, ad hoc solutions or using dedicated data observability tools.
+
+Fixing Quality Issues in Software Development
+
+The DevOps life cycle incorporates eight sections, or continuous stages, including:
+
+Plan
+The dev team aligns with product and business teams to understand the goals and SLAs for your software.
+Code
+Write new software.
+Build
+Release your software into a test environment.
+Test
+Test your software.
+Release
+Release the software to production.
+Deploy
+Integrate and deploy the software with your existing applications.
+Operate
+Run the software, adjust as necessary.
+Monitor
+Monitor and alert for issues in the software.
+
+ROOT CAUSE ANALYSIS>
+
+Ask yourself:
+
+Is the data wrong for all records? For some records?
+
+Is the data wrong for a particular time period?
+
+Is the data wrong for a particular subset or segment of the data, e.g., only your Android users or only orders from France?
+
+Are there new segments of the data (that your code doesn’t account for yet) or missing segments (that your code relies on)?
+
+Has the schema changed recently in a way that might explain the problem?
+
+Have your numbers changed from dollars to cents? Your timestamps from PST to EST?
+
+And the list goes on.
+
+What data exists?
+
+Who needs this data?
+
+Where is this data flowing to/from?
+
+What purpose does this data serve?
+
+Is there a way to make it easier to work with/access this data?
+
+Is this data compliant and/or actionable?
+
+How can we make data more useful to more people at the company, faster?
+
+How do you measure the data quality of the assets your company collects and stores?
+
+What are the key KPIs or goals you’re going to hold your data quality strategy accountable for meeting?
+
+Do you have cross-functional involvement from leadership and data users in other parts of the company?
+
+Who at the company will be held accountable for meeting your strategy’s KPIs and goals?
+
+What checks and balances do you have to ensure KPIs are measured correctly and goals can be met?
+
+
+Prioritize data quality and reliability
+One key component of approaching data as a product is applying standards of rigor to the entire ecosystem, from ingestion to consumer-facing data deliverables. As we discussed in the context of storytelling earlier, this means prioritizing data quality and reliability throughout the data life cycle. Companies can assess their current state of data quality by mapping their progress against the data reliability maturity curve. Briefly, this model (see Figure 8-1) suggests there are four main stages of data reliability:
+
+Reactive
+Teams spend a majority of their time responding to fire drills and triaging data issues—resulting in a lack of progress on important initiatives, an organizational struggle to use data effectively in their product, machine learning algorithms, or business decision making.
+Proactive
+Teams collaborate actively between engineering, data engineering, data analysts, and data scientists to develop manual checks and custom QA queries to validate their work. Examples might include validating row counts in critical stages of the pipelines or tracking timestamps to ensure data freshness. Slack messages or email alerts still pop up when things go wrong, but these teams do catch many issues through their proactive testing.
+Automated
+At this level, teams prioritize reliable, accurate data through scheduled validation queries that deliver broader coverage of pipelines. Teams use data health dashboards to view issues, troubleshoot, and provide status updates to others in the organization. Examples include tracking and storing metrics about dimensions and measures to observe trends and changes, or monitoring and enforcing schema at the ingestion stage.
+Scalable
+These teams draw on proven DevOps concepts to institute a staging environment, reusable components for validation, and/or hard and soft alerts for data errors. With substantial coverage of mission-critical data, the team can resolve most issues before they impact downstream users. Examples include anomaly detection across all key metrics and tooling that allows every job and table to be monitored and tracked for quality.
+
+
+Align Your Product’s Goals with the Goals of the Business
+
+What services or products drive revenue growth?
+
+What data do these services or products collect?
+
+What do we need to do with the data before we can use it?
+
+Which teams need this data? What will they do with it?
+
+Who will have access to this data or the analytics it generates?
+
+How quickly do these users need access to this data?
+
+What, if any, compliance or governance checks does the platform need to address?
+
+
+
+
+
+
+Seven Steps to Implementing a Data Certification Program
+Data certification programs increase scalability by leveraging a consistent approach applied across multiple domains. They also increase efficiency by facilitating more trustworthy exchanges of information between domains with clear lines of communication.
+
+Here’s how it works.
+
+Step 1: Build out your data observability capabilities
+Implementing data observability—an organization’s ability to fully understand the health of the data in their system—is an important first step in the data certification process. Not only do you need insight into your current performance to set a baseline, but you also need a systemic end-to-end approach for proactive incident discovery, alerting, and triaging as shown in Figure 8-6. Powered by observability, a data incident dashboard automatically surfaces anomalies, schema changes, deleted tables, and rule breaches.
+
+If anything within the pipeline breaks—and it will break—you will be the first to know. This head start, along with a detailed understanding of the data ecosystem, will reduce time to detection and resolution by pinpointing where errors occur.
+
+
+Figure 8-6. Data incident dashboard
+Knowing what systems and data sets have a tendency to create the largest or most frequent problems downstream also helps inform the process of writing effective data SLAs (Step 4). Additionally, understanding the upstream dependencies of your most important tables or reports helps data teams understand what data to give the most attention. The bottom line is that a table or data set should be closely monitored for anomalies (ideally continuously learning and evolving via machine learning) to be considered certified.
+
+Step 2: Determine your data owners
+Each certified data asset should have a responsible party across its life cycle from the ingestion to analytics layer as shown in Figure 8-7. Modern metadata management tools allow data owners to be assigned to tables along with other tags, helping them keep tabs on the reliability of critical data sets.
+
+
+Figure 8-7. Responsible parties should be assigned for each layer
+Some data teams may choose to implement a RACI matrix; others may build it directly into the specific SLA along with the expected communication procedures and resolution times.
+
+Step 3: Understand what “good” data looks like
+By asking your business stakeholders the “who, what, when, where, and why,” you can understand what data quality means to them and which data is actually the most important. This will enable you to develop key performance indicators such as:
+
+Freshness
+
+Data will be refreshed by 8:00 a.m. daily (great for cases where the CEO or other key executives are checking their dashboards at 8:30 a.m.).
+
+Data will never be older than X hours.
+
+Distribution
+
+Column X will never be null.
+
+Column Y will always be unique.
+
+Field X will always be equal to or greater than field Y.
+
+Volume
+
+Table X will never decrease in size.
+
+Schema
+
+No fields will be deleted on this table.
+
+Lineage
+
+100% of the data populating table X will have upstream sources and downstream ingestors mapped and include relevant metadata.
+
+Data downtime (or availability)
+
+The number of incidents multiplied by (time to detection + time to resolution). An example of a data downtime SLA could be table X will have less than Y hours of downtime a year.
+
+SLAs that measure each of the components of data downtime can be more actionable. Examples include we will reduce our incidents X%, time to detection X%, and time to resolution X%.
+
+Query speed
+
+Our friends at Locally Optimistic suggest: “Average query run time is a good place to start, but you may need to create a more nuanced metric (e.g., X% of queries finish in <Y seconds).”
+
+Ingestion (great for keeping external partners accountable)
+
+Data will be received by 5 a.m. each morning from partner Y.
+
+This process also enables you to configure granular alerting rules tailored to what matters most to the business.
+
+Step 4: Set clear SLAs, SLOs, and SLIs for your most important data sets
+As highlighted in Chapter 6, setting SLAs for your data pipeline is a major step toward increasing your data reliability and is essential to a data certification program. SLAs must be specific, measurable by an SLO and SLI, and achievable.
+
+Not only do SLAs describe an agreed-upon standard of service, they define the relationship between parties. In other words, they outline who is responsible for what during normal operations as well as when issues occur.
+
+In our discussions with Brandon Beidel, a Senior Data Scientist with Red Ventures, he suggested that an effective SLA is realistic. Simply saying “having reliable data at all times” is too vague to be useful; instead, Brandon suggested, teams should set SLAs that are focused: “Good SLAs are specific and detailed. They will describe why it’s important to the business, what the expectations are, when those expectations need to be met, how they will be met, where the data lives, and who is impacted by it.”
+
+Beidel includes within his SLAs how the team should respond if the SLA isn’t met. For example, the “data in table X will be refreshed every day by 8:00 a.m.” will transform into, “Team Z will ensure the data in table X will be refreshed every day by 8:00 a.m. Within two hours of an anomaly alert, the team will verify, communicate to affected parties, and begin a root cause analysis of the issue. Within one business day a ticket will be created and the wider team will be updated on the progress made toward resolution.”
+
+To achieve this level of specificity and organization, teams should align early—and often—with stakeholders to understand what good data looks like. That includes within the data team as well as the business. A good SLA needs to be informed by the realities of how the business operates and how your users consume the data.
+
+Beidel takes a slightly different approach and differentiates between what he considers the SLA of “Table x will be updated by 8 a.m.” and the SLO of “We will aim to meet this SLA 99% of the time.” However you decide to approach it, he recommends against boiling the ocean. Most of his customers are implementing their data certification programs as “go forward” first and cleaning up older assets in a second wave.
+
+In fact, many of the best data teams will start certifying the most critical tables and data sets: the ones that add the most value to the business, have the most query activity, number of users, or dependencies. Some are also implementing tiers of certification—bronze, silver, gold—that convey different levels of service and support.
+
+Step 5: Develop your communication and incident management processes
+Where and how will alerts be sent to the team? How will next steps and progress be communicated internally and externally? While this may seem like table stakes, clear and transparent communication is essential to creating a culture of accountability.
+
+Many teams opt to have alerts and incident triage discussions take place in Slack, PagerDuty, or Microsoft Teams. This enables rapid coordination while giving full transparency to the wider team as part of a healthy incident management workflow, as discussed in Chapter 6.
+
+It’s also important to consider how to communicate major outages to the rest of the organization. For example, if an alert turns out to be a huge production outage, how does the on-call engineer inform the rest of the company? Where do they make that announcement and how frequently do they provide updates?
+
+Step 6: Determine a mechanism to tag the data as certified
+At this point, you have created SLAs with measurable objectives, transparent ownership, clear communication processes, and strong issue resolution expectations. You have the tools and proactive measures in place to empower your teams to be successful. The final step is to certify and surface the approved data assets for your stakeholders.
+
+We recommend decentralizing the certification process. After all, the certification process is designed to help make teams faster and more scalable. Having centralized regulations, enacted at the domain level, will achieve these goals and avoid creating too much red tape. For the certification process, data teams will tag, search, and leverage their tables appropriately using either data discovery solutions, a home-grown tool, or some other form of data catalog.
+
+Step 7: Train your data team and downstream consumers
+Of course, just because tables are tagged as certified doesn’t guarantee analysts will stay in bounds. The team will need to be trained in the proper procedures, which will need to be enforced as necessary. Fine-tuning the level of alerts and communication is important as well.
+
+Occasionally receiving alerts that don’t require action is healthy. For example, you may have a table that grows significantly in size, but it was expected because the team added a new data source. Nothing is broken and in need of fixing, but it’s still helpful for the team to know. After all, “expected” behavior to one person might still be newsworthy and critical to another member of the team—or even another domain.
+
+However, alert fatigue is real. If the team is starting to ignore alerts, it can be a sign to optimize your approach by either adjusting your monitors or bifurcating communication channels to better surface the most important information.
+
+When it comes to your data consumers, don’t be shy! You have put in an incredibly robust system for data quality aligned to their needs. Help them move from a subjective to objective understanding of how your team is performing and start giving them the vocabulary to be part of the solution.
+
+Data certification can be a beautiful process to see in action. The data engineer tags the table as certified along with the owner of the data set, and surfaces it within the data warehouse for an analyst to grab it and use in their dashboard. And voila! No more (or at least, a whole lot less) data downtime.
+
+At its core, this process underscores that without the proper processes and culture in place, certifying reliability and building organizational trust in your data is extremely difficult. Technology will never be a replacement for good data hygiene, but it certainly helps.
+
+Second perhaps only to implementing a data certification program with clear SLAs, modern data teams can best navigate the cultural and organizational hurdles of data quality by prioritizing a team structure that plays to the strengths and needs of their business.
